@@ -237,7 +237,7 @@ st.set_page_config(page_title="Point & Figure Charts (Parquet)", layout="wide")
 
 st.title("Point & Figure (P&F) Chart Viewer — from Parquet")
 
-folder = st.sidebar.text_input("Data folder (where *.parquet are)", value=".")
+folder = st.sidebar.text_input("Data folder (where *.parquet are)", value="./stocks")
 tickers = list_tickers_from_parquet(folder)
 
 if not tickers:
@@ -309,3 +309,4 @@ st.plotly_chart(fig, use_container_width=True)
 # Optional: show raw dataframe
 with st.expander("Show raw price data (filtered)"):
     st.dataframe(df_f[["date", "open", "high", "low", "close", "adj_close", "volume"]].tail(300), use_container_width=True)
+
